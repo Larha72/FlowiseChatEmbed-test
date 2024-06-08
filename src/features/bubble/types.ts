@@ -12,6 +12,8 @@ export type TextInputTheme = {
   textColor?: string;
   placeholder?: string;
   sendButtonColor?: string;
+  maxChars?: number;
+  maxCharsWarningMessage?: string;
 };
 
 export type UserMessageTheme = {
@@ -59,7 +61,7 @@ export type ChatWindowTheme = {
 };
 
 export type ButtonTheme = {
-  size?: number; // custom size of chatbot in pixels
+  size?: 'small' | 'medium' | 'large' | number; // custom size of chatbot in pixels
   backgroundColor?: string;
   iconColor?: string;
   customIconSrc?: string;

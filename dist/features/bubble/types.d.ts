@@ -10,6 +10,8 @@ export type TextInputTheme = {
     textColor?: string;
     placeholder?: string;
     sendButtonColor?: string;
+    maxChars?: number;
+    maxCharsWarningMessage?: string;
 };
 export type UserMessageTheme = {
     backgroundColor?: string;
@@ -51,7 +53,7 @@ export type ChatWindowTheme = {
     poweredByTextColor?: string;
 };
 export type ButtonTheme = {
-    size?: number;
+    size?: 'small' | 'medium' | 'large' | number;
     backgroundColor?: string;
     iconColor?: string;
     customIconSrc?: string;

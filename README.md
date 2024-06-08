@@ -104,13 +104,13 @@ You can also customize chatbot with different configuration
         backgroundColor: '#3B81F6',
         right: 20,
         bottom: 20,
-        size: 100, //Now set the size of chatbot based on custom value
-        dragAndDrop: true, //drag and drop the chatbot horizontally to turn off set the parameter to false
+        size: 48, // small | medium | large | number
+        dragAndDrop: true,
         iconColor: 'white',
         customIconSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
       },
       chatWindow: {
-        showTitle: true, // show/hide the title bar
+        showTitle: true,
         title: 'Flowise Bot',
         titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
         welcomeMessage: 'Hello! This is custom welcome message',
@@ -136,6 +136,8 @@ You can also customize chatbot with different configuration
           backgroundColor: '#ffffff',
           textColor: '#303235',
           sendButtonColor: '#3B81F6',
+          maxChars: 50,
+          maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 50 characters.',
         },
         feedback: {
           color: '#303235',
