@@ -21,6 +21,7 @@ type Props = {
   handleFileChange: (event: FileEvent<HTMLInputElement>) => void;
   maxChars?: number;
   maxCharsWarningMessage?: string;
+  autoFocus?: boolean;
 };
 
 const defaultBackgroundColor = '#ffffff';
@@ -64,11 +65,15 @@ export const TextInput = (props: Props) => {
   };
 
   createEffect(() => {
-    if (!props.disabled && !isMobile() && inputRef) inputRef.focus();
+    const shouldAutoFocus = props.autoFocus !== undefined ? props.autoFocus : !isMobile() && window.innerWidth > 640;
+
+    if (!props.disabled && shouldAutoFocus && inputRef) inputRef.focus();
   });
 
   onMount(() => {
-    if (!isMobile() && inputRef) inputRef.focus();
+    const shouldAutoFocus = props.autoFocus !== undefined ? props.autoFocus : !isMobile() && window.innerWidth > 640;
+
+    if (!props.disabled && shouldAutoFocus && inputRef) inputRef.focus();
   });
 
   const handleFileChange = (event: FileEvent<HTMLInputElement>) => {
@@ -78,7 +83,7 @@ export const TextInput = (props: Props) => {
 
   return (
     <div
-      class="w-full h-auto max-h-[128px] min-h-[56px] flex flex-col items-end justify-between chatbot-input border border-[#eeeeee]"
+      class="w-full h-auto max-h-[192px] min-h-[56px] flex flex-col items-end justify-between chatbot-input border border-[#eeeeee]"
       data-testid="input"
       style={{
         margin: 'auto',
@@ -99,7 +104,7 @@ export const TextInput = (props: Props) => {
               buttonColor={props.sendButtonColor}
               type="button"
               class="m-0 h-14 flex items-center justify-center"
-              isDisabled={props.disabled  || isSendButtonDisabled()}
+              isDisabled={props.disabled || isSendButtonDisabled()}
               on:click={handleImageUploadClick}
             >
               <span style={{ 'font-family': 'Poppins, sans-serif' }}>Image Upload</span>

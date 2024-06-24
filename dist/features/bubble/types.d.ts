@@ -4,6 +4,7 @@ export type BubbleParams = {
 export type BubbleTheme = {
     chatWindow?: ChatWindowTheme;
     button?: ButtonTheme;
+    tooltip?: ToolTipTheme;
 };
 export type TextInputTheme = {
     backgroundColor?: string;
@@ -12,6 +13,7 @@ export type TextInputTheme = {
     sendButtonColor?: string;
     maxChars?: number;
     maxCharsWarningMessage?: string;
+    autoFocus?: boolean;
 };
 export type UserMessageTheme = {
     backgroundColor?: string;
@@ -37,6 +39,7 @@ export type FeedbackTheme = {
 };
 export type ChatWindowTheme = {
     showTitle?: boolean;
+    showAgentMessages?: boolean;
     title?: string;
     titleAvatarSrc?: string;
     welcomeMessage?: string;
@@ -60,5 +63,12 @@ export type ButtonTheme = {
     bottom?: number;
     right?: number;
     dragAndDrop?: boolean;
+};
+export type ToolTipTheme = {
+    showTooltip?: boolean;
+    tooltipMessage?: string;
+    tooltipBackgroundColor?: string;
+    tooltipTextColor?: string;
+    tooltipFontSize?: number;
 };
 //# sourceMappingURL=types.d.ts.map
